@@ -1,0 +1,360 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(3, 3, 17);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    position: relative;
+    width: 20rem;
+    height: 30rem;
+    background-color: #1c1c1c;
+    overflow: hidden;
+    perspective: 1000px;
+    z-index: 10;
+}
+.design{
+    position: relative;
+    width: 22rem;
+    height: 30rem;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.design .square{
+    position: absolute;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0px;
+    animation: animate6 5s linear infinite;
+}
+@keyframes animate6 {
+    0%{
+        transform: translateY(-15px);
+    }
+    50%{
+        transform: translateY(10px);
+    }
+}
+.design .square:nth-child(1){
+    top: -50px;
+    right: -60px;
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+}
+.design .square:nth-child(2){
+    top: 150px;
+    left: -100px;
+    width: 120px;
+    height: 120px;
+    z-index: 100;
+}
+.design .square:nth-child(3){
+    bottom: 50px;
+    right: -60px;
+    width: 80px;
+    height: 80px;
+    z-index: 100;
+}
+.design .square:nth-child(4){
+    bottom: -60px;
+    left: 100px;
+    width: 50px;
+    height: 50px;
+    z-index: 100;
+}
+.design .square:nth-child(5){
+    top: -80px;
+    left: 140px;
+    width: 60px;
+    height: 60px;
+    z-index: 100;
+}
+.card::before{
+    content:'';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 20rem;
+    height: 30rem;
+    background: linear-gradient(0deg,transparent,#03e9f4, #03e9f4);
+    animation: animate 6s linear infinite;
+    transform-origin: bottom right;
+}
+.card::after{
+    content:'';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 20rem;
+    height: 30rem;
+    background: linear-gradient(0deg,transparent,#03e9f4, #03e9f4);
+    animation: animate 6s linear infinite;
+    transform-origin: bottom right;
+    animation-delay: -3s;
+}
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.inner-box{
+    position: absolute;
+    margin-top: 1.6px;
+    margin-left: 1px;
+    width: 99%;
+    height: 99%;
+    z-index: 10;
+    inset: 2;
+    background: #28292d;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+.card-front, .card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    backface-visibility: hidden;
+    padding: 40px;
+    box-sizing: border-box;
+}
+.card-back{
+    transform: rotateY(180deg);
+}
+.card h2{
+    font-weight: normal;
+    font-family:'Courier New', Courier, monospace;
+    color: #03e9f4;
+    align-items: center;
+    margin-bottom: 1.3rem;
+    font-size: 2rem;
+    display:flex;
+    flex-direction: column;
+}
+.inputbox{
+    position: relative;
+    width: 100%;
+    background: transparent;
+    border:none;
+    margin: 6px 0;
+    height: 32px;
+    border-radius: 10px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    z-index: 10;
+}
+button{
+    width: 100%;
+    background-color: #131314;
+    border: transparent;
+    margin: 35px 0 10px;
+    height: 32px;
+    font-size: 17px;
+    border-radius: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    color: #03e9f4;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+button:hover{
+    color: black;
+    background-color: #03e9f4;
+    box-shadow: 0 0 10px #03e9f4, 0 0 40px #03e9f4, 0 0 80px #03e9f4;
+    font-weight: 500;
+    text-shadow: 0 0 10px black;
+}
+button span{
+    position: absolute;
+    display: block;
+}
+button span:nth-child(1){
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,#03e9f4);
+    animation: animate1 1s linear infinite;
+}
+@keyframes animate1 {
+    0%{
+        left: -100%;
+    }
+    50%,100%{
+        left: 100%;
+    }
+}
+button span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#03e9f4);
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+@keyframes animate2 {
+    0%{
+        top: -100%;
+    }
+    50%,100%{
+        top: 100%;
+    }
+}
+button span:nth-child(3){
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent,#03e9f4);
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.5s;
+}
+@keyframes animate3 {
+    0%{
+        right: -100%;
+    }
+    50%,100%{
+        right: 100%;
+    }
+}
+button span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#03e9f4);
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+@keyframes animate4 {
+    0%{
+        bottom: -100%;
+    }
+    50%,100%{
+        bottom: 100%;
+    }
+}
+.input-box{
+    position: relative;
+}
+.input-box .ab{
+    position: absolute;
+    left: 0;
+    padding: 14px 19px 10px;
+    font-size: 1.1rem;
+    color: #8f8f8f;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+.input-box .inputbox:valid ~ .ab,
+.input-box .inputbox:focus ~ .ab{
+    color: #03e9f4;
+    transform: translateX(-10px) translateY(-34px);
+    font-size: 0.97em;
+}
+.input-box i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    transition: 0.5s;
+    pointer-events: none;
+    border-radius: 8px;
+    background: #03e9f4;
+    z-index: 9;
+}
+.input-box .inputbox:valid ~ i,
+.inner-box .inputbox:focus ~ i{
+    height: 44px;
+}
+.ac{
+    color: #8f8f8f;
+    padding: 1rem;
+    font-size: 19px;
+}
+.card-front a{
+    text-decoration: none;
+    text-align: center;
+    color: aliceblue;
+    font-size: 18px;
+    display: block;
+    transition: 0.50s;
+}
+a:hover{
+    color: #03e9f4;
+    text-shadow: 0 0 10px #03e9f4;
+}
+.input-box1{
+    position: relative;
+    margin-bottom: 5px;
+}
+.input-box1 i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    transition: 0.5s;
+    pointer-events: none;
+    border-radius: 8px;
+    background: #03e9f4;
+    z-index: 9;
+}
+.input-box1 .inputbox:valid ~ i,
+.inner-box1 .inputbox:focus ~ i{
+    height: 44px;
+}
+.input-box1 .ab1{
+    position: absolute;
+    left: 0;
+    padding: 14px 19px 10px;
+    font-size: 1.1rem;
+    color: #8f8f8f;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+.input-box1 .inputbox:valid ~ .ab1,
+.input-box1 .inputbox:focus ~ .ab1{
+    color: #03e9f4;
+    transform: translateX(-10px) translateY(-34px);
+    font-size: 0.97em;
+}
+.h{
+    margin-bottom: 0.8rem;
+    margin-top: 2px;
+}
+.card-back{
+    margin-top: 0rem;
+    padding-top: 1.2rem;
+}
+.btn1{
+    margin-top: 6px;
+}
+.submit-btn1{
+    margin-top: 6.3px;
+}
